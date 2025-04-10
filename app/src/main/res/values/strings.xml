@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">O2Input</string>
+    <string name="optional_title">Optional</string>
 </resources>

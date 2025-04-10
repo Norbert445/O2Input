@@ -8,8 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import com.example.o2input.ui.theme.LocalCustomColorsPalette
 import com.example.o2input.ui.theme.O2InputTheme
-import com.example.o2input.ui.widget.Input
+import com.example.o2input.ui.widget.InputView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +18,18 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             O2InputTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Input(modifier = Modifier.padding(innerPadding))
+                Scaffold(
+                    containerColor = LocalCustomColorsPalette.current.surfaceXLow,
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) { innerPadding ->
+                    InputView(
+                        value = "",
+                        onValueChange = {},
+                        modifier = Modifier.padding(innerPadding),
+                        label = "Input",
+                        placeholder = "Placeholder"
+                    )
                 }
             }
         }
