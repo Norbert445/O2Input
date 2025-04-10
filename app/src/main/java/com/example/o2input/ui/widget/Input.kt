@@ -9,7 +9,7 @@ import androidx.compose.ui.tooling.preview.Preview
 fun Input(modifier: Modifier = Modifier) {
     return TextField(
         modifier = modifier,
-        value = "",
+        value = "Inter",
         onValueChange = {}
     )
 }

@@ -47,7 +47,9 @@ fun O2InputTheme(
     val colors = if (darkTheme) DarkColorScheme else LightColorScheme
 
     CompositionLocalProvider(
-        LocalCustomColorsPalette provides colors
+        LocalCustomColorsPalette provides colors,
+        LocalSpacing provides Spacing(),
+        LocalRadius provides Radius(),
     ) {
         MaterialTheme(
             typography = Typography,
