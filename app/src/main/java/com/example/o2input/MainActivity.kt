@@ -21,7 +21,7 @@ import com.example.o2input.ui.theme.LocalCustomColorsPalette
 import com.example.o2input.ui.theme.LocalSpacing
 import com.example.o2input.ui.theme.O2InputTheme
 import com.example.o2input.ui.widget.InputView
-import com.example.o2input.ui.widget.PasswordInputView
+import com.example.o2input.ui.widget.PasswordInput
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
 
                         Spacer(modifier = Modifier.height(LocalSpacing.current.m))
 
-                        PasswordInputView(
+                        PasswordInput(
                             password = password,
                             label = stringResource(R.string.password_title),
                             onValueChange = {

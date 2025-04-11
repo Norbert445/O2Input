@@ -62,6 +62,9 @@ fun InputView(
         OutlinedTextField(
             value = value,
             onValueChange = onValueChange,
+            textStyle = LocalTypography.current.bodyM.copy(
+                color = LocalCustomColorsPalette.current.contentOnNeutralXXHigh
+            ),
             placeholder = {
                 Text(
                     text = placeholder,
