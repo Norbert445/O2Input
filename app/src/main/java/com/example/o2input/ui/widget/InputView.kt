@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.o2input.R
@@ -29,6 +30,9 @@ fun InputView(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
+    textStyle: TextStyle = LocalTypography.current.bodyM.copy(
+        color = LocalColors.current.contentOnNeutralXXHigh
+    ),
     label: String? = null,
     placeholder: String = "",
     supportingText: String? = null,
@@ -64,9 +68,7 @@ fun InputView(
         OutlinedTextField(
             value = value,
             onValueChange = onValueChange,
-            textStyle = LocalTypography.current.bodyM.copy(
-                color = LocalColors.current.contentOnNeutralXXHigh
-            ),
+            textStyle = textStyle,
             placeholder = {
                 Text(
                     text = placeholder,
@@ -99,7 +101,7 @@ fun InputView(
 fun InputPreview() {
     O2InputTheme {
         InputView(
-            "",
+            "Input",
             {},
             label = "Input",
             placeholder = "Placeholder",

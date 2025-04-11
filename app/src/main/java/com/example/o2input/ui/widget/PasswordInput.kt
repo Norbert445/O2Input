@@ -21,7 +21,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -37,12 +39,17 @@ fun PasswordInput(
     password: String,
     onPasswordChange: (String) -> Unit,
     modifier: Modifier = Modifier,
+    textStyle: TextStyle = LocalTypography.current.bodyM.copy(
+        color = LocalColors.current.contentOnNeutralXXHigh
+    ),
     label: String? = null,
     placeholder: String = "",
     isError: Boolean = false,
     leadingIcon: @Composable (() -> Unit)? = null,
     supportingText: String? = null,
     rules: List<Pair<String, Boolean>>? = null,
+    validRuleColor: Color = LocalColors.current.surfaceBrand,
+    invalidRuleColor: Color = LocalColors.current.contentOnNeutralDanger
 ) {
     var passwordVisible by remember { mutableStateOf(false) }
 
@@ -51,6 +58,7 @@ fun PasswordInput(
             value = password,
             onValueChange = onPasswordChange,
             modifier = modifier,
+            textStyle = textStyle,
             label = label,
             placeholder = placeholder,
             isOptional = false,
@@ -80,10 +88,12 @@ fun PasswordInput(
             }
         )
 
+        if (rulesToShow.isEmpty()) return
+
         Column(modifier = Modifier.padding(top = LocalSpacing.current.xs)) {
             rulesToShow.forEach { (ruleText, isValid) ->
                 val color =
-                    if (isValid) LocalColors.current.surfaceBrand else LocalColors.current.contentOnNeutralDanger
+                    if (isValid) validRuleColor else invalidRuleColor
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
@@ -108,7 +118,7 @@ fun PasswordInput(
 fun PasswordInputPreview() {
     O2InputTheme {
         PasswordInput(
-            password = "",
+            password = "aaaaaaaaaa",
             onPasswordChange = {},
             label = "Password"
         )

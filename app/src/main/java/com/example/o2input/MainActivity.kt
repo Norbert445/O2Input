@@ -68,6 +68,7 @@ class MainActivity : ComponentActivity() {
                         PasswordInput(
                             password = password,
                             label = stringResource(R.string.password_title),
+                            placeholder = "Password",
                             onPasswordChange = {
                                 password = it
                             },
