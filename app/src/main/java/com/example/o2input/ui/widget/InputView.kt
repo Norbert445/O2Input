@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -22,6 +21,7 @@ import com.example.o2input.R
 import com.example.o2input.ui.theme.LocalCustomColorsPalette
 import com.example.o2input.ui.theme.LocalRadius
 import com.example.o2input.ui.theme.LocalSpacing
+import com.example.o2input.ui.theme.LocalTypography
 import com.example.o2input.ui.theme.O2InputTheme
 
 @Composable
@@ -43,7 +43,7 @@ fun InputView(
                 Text(
                     text = it,
                     color = if (isError) LocalCustomColorsPalette.current.contentOnNeutralDanger else LocalCustomColorsPalette.current.contentOnNeutralXXHigh,
-                    style = MaterialTheme.typography.labelMedium
+                    style = LocalTypography.current.labelM
                 )
                 Spacer(modifier = Modifier.width(LocalSpacing.current.xs))
             }
@@ -52,7 +52,7 @@ fun InputView(
                 Text(
                     text = stringResource(R.string.optional_title),
                     color = LocalCustomColorsPalette.current.contentOnNeutralLow,
-                    style = MaterialTheme.typography.labelSmall
+                    style = LocalTypography.current.labelS
                 )
             }
         }
@@ -65,7 +65,7 @@ fun InputView(
             placeholder = {
                 Text(
                     text = placeholder,
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = LocalTypography.current.bodyM,
                     color = LocalCustomColorsPalette.current.contentOnNeutralLow,
                 )
             },

@@ -50,9 +50,9 @@ fun O2InputTheme(
         LocalCustomColorsPalette provides colors,
         LocalSpacing provides Spacing(),
         LocalRadius provides Radius(),
+        LocalTypography provides Typography()
     ) {
         MaterialTheme(
-            typography = Typography,
             content = content
         )
     }

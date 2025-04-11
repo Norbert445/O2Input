@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import com.example.o2input.R
 import com.example.o2input.ui.theme.LocalCustomColorsPalette
 import com.example.o2input.ui.theme.LocalSpacing
+import com.example.o2input.ui.theme.LocalTypography
 import com.example.o2input.ui.theme.O2InputTheme
 
 @Composable
@@ -92,7 +93,7 @@ fun PasswordInputView(
                     Text(
                         text = ruleText,
                         color = color,
-                        style = MaterialTheme.typography.labelSmall
+                        style = LocalTypography.current.labelS
                     )
                 }
             }

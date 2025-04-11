@@ -1,6 +1,6 @@
 package com.example.o2input.ui.theme
 
-import androidx.compose.material3.Typography
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -14,22 +14,22 @@ val interFontFamily = FontFamily(
     Font(R.font.inter_semi_bold, FontWeight.SemiBold),
 )
 
-val Typography = Typography(
-    bodyMedium = TextStyle(
+data class Typography(
+    val bodyM: TextStyle = TextStyle(
         fontFamily = interFontFamily,
         fontWeight = FontWeight.W400,
         fontSize = 16.sp,
         lineHeight = 22.sp,
         letterSpacing = 0.01.sp
     ),
-    labelMedium = TextStyle(
+    val labelM: TextStyle = TextStyle(
         fontFamily = interFontFamily,
         fontWeight = FontWeight.W500,
         fontSize = 16.sp,
         lineHeight = 22.sp,
         letterSpacing = 0.16.sp
     ),
-    labelSmall = TextStyle(
+    val labelS: TextStyle = TextStyle(
         fontFamily = interFontFamily,
         fontWeight = FontWeight.W600,
         fontSize = 14.sp,
@@ -37,3 +37,5 @@ val Typography = Typography(
         letterSpacing = 0.16.sp
     )
 )
+
+val LocalTypography = compositionLocalOf { Typography() }
