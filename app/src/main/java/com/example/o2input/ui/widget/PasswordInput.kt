@@ -41,7 +41,8 @@ fun PasswordInput(
     placeholder: String = "",
     isError: Boolean = false,
     leadingIcon: @Composable (() -> Unit)? = null,
-    supportingText: String? = null
+    supportingText: String? = null,
+    rules: List<Pair<String, Boolean>>? = null,
 ) {
     var passwordVisible by remember { mutableStateOf(false) }
 
@@ -70,7 +71,7 @@ fun PasswordInput(
         )
 
         val specialCharacters = listOf('?', '=', '#', '/', '%')
-        val rules = listOf(
+        val rulesToShow = rules ?: listOf(
             stringResource(R.string.password_rule_min_length) to (password.length >= 8),
             stringResource(R.string.password_rule_uppercase) to password.any { it.isUpperCase() },
             stringResource(R.string.password_rule_number) to password.any { it.isDigit() },
@@ -80,7 +81,7 @@ fun PasswordInput(
         )
 
         Column(modifier = Modifier.padding(top = LocalSpacing.current.xs)) {
-            rules.forEach { (ruleText, isValid) ->
+            rulesToShow.forEach { (ruleText, isValid) ->
                 val color =
                     if (isValid) LocalColors.current.surfaceBrand else LocalColors.current.contentOnNeutralDanger
 

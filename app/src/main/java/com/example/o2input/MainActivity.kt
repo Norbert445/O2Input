@@ -70,7 +70,7 @@ class MainActivity : ComponentActivity() {
                             label = stringResource(R.string.password_title),
                             onPasswordChange = {
                                 password = it
-                            }
+                            },
                         )
                     }
                 }
