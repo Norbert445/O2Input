@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">O2Input</string>
     <string name="optional_title">Optional</string>
+    <string name="password_title">Password</string>
+
+    <string name="password_requirements">Password Requirements:</string>
+    <string name="password_rule_min_length">At least 8 characters</string>
+    <string name="password_rule_uppercase">At least one uppercase letter</string>
+    <string name="password_rule_number">At least one number</string>
+    <string name="password_rule_special_char">At least one special character (? = # / %)</string>
 </resources>

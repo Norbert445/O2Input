@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -15,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.o2input.R
 import com.example.o2input.ui.theme.LocalCustomColorsPalette
@@ -31,6 +33,9 @@ fun InputView(
     placeholder: String = "",
     isOptional: Boolean = true,
     isError: Boolean = false,
+    trailingIcon: @Composable (() -> Unit)? = null,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default
 ) {
     Column(modifier = modifier) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -72,7 +77,10 @@ fun InputView(
                 unfocusedBorderColor = LocalCustomColorsPalette.current.surfaceXHigh,
                 errorBorderColor = LocalCustomColorsPalette.current.surfaceDanger
             ),
-            shape = RoundedCornerShape(LocalRadius.current.input)
+            shape = RoundedCornerShape(LocalRadius.current.input),
+            trailingIcon = trailingIcon,
+            visualTransformation = visualTransformation,
+            keyboardOptions = keyboardOptions
         )
     }
 }
