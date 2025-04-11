@@ -27,4 +27,4 @@ data class CustomColorsPalette(
     val stateDefaultFocus: Color = Color.Unspecified
 )
 
-val LocalCustomColorsPalette = staticCompositionLocalOf { CustomColorsPalette() }
+val LocalColors = staticCompositionLocalOf { CustomColorsPalette() }

@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.o2input.R
-import com.example.o2input.ui.theme.LocalCustomColorsPalette
+import com.example.o2input.ui.theme.LocalColors
 import com.example.o2input.ui.theme.LocalRadius
 import com.example.o2input.ui.theme.LocalSpacing
 import com.example.o2input.ui.theme.LocalTypography
@@ -42,7 +42,7 @@ fun InputView(
             label?.let {
                 Text(
                     text = it,
-                    color = if (isError) LocalCustomColorsPalette.current.contentOnNeutralDanger else LocalCustomColorsPalette.current.contentOnNeutralXXHigh,
+                    color = if (isError) LocalColors.current.contentOnNeutralDanger else LocalColors.current.contentOnNeutralXXHigh,
                     style = LocalTypography.current.labelM
                 )
                 Spacer(modifier = Modifier.width(LocalSpacing.current.xs))
@@ -51,7 +51,7 @@ fun InputView(
             if (isOptional) {
                 Text(
                     text = stringResource(R.string.optional_title),
-                    color = LocalCustomColorsPalette.current.contentOnNeutralLow,
+                    color = LocalColors.current.contentOnNeutralLow,
                     style = LocalTypography.current.labelS
                 )
             }
@@ -63,22 +63,22 @@ fun InputView(
             value = value,
             onValueChange = onValueChange,
             textStyle = LocalTypography.current.bodyM.copy(
-                color = LocalCustomColorsPalette.current.contentOnNeutralXXHigh
+                color = LocalColors.current.contentOnNeutralXXHigh
             ),
             placeholder = {
                 Text(
                     text = placeholder,
                     style = LocalTypography.current.bodyM,
-                    color = LocalCustomColorsPalette.current.contentOnNeutralLow,
+                    color = LocalColors.current.contentOnNeutralLow,
                 )
             },
             isError = isError,
             modifier = Modifier
                 .fillMaxWidth(),
             colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = LocalCustomColorsPalette.current.surfaceBrand,
-                unfocusedBorderColor = LocalCustomColorsPalette.current.surfaceXHigh,
-                errorBorderColor = LocalCustomColorsPalette.current.surfaceDanger
+                focusedBorderColor = LocalColors.current.surfaceBrand,
+                unfocusedBorderColor = LocalColors.current.surfaceXHigh,
+                errorBorderColor = LocalColors.current.surfaceDanger
             ),
             shape = RoundedCornerShape(LocalRadius.current.input),
             trailingIcon = trailingIcon,

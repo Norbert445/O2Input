@@ -17,7 +17,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.o2input.ui.theme.LocalCustomColorsPalette
+import com.example.o2input.ui.theme.LocalColors
 import com.example.o2input.ui.theme.LocalSpacing
 import com.example.o2input.ui.theme.O2InputTheme
 import com.example.o2input.ui.widget.InputView
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                 var password by remember { mutableStateOf("") }
 
                 Scaffold(
-                    containerColor = LocalCustomColorsPalette.current.surfaceXLow,
+                    containerColor = LocalColors.current.surfaceXLow,
                     modifier = Modifier
                         .fillMaxSize()
                 ) { innerPadding ->

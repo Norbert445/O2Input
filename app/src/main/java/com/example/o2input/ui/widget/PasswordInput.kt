@@ -27,7 +27,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.o2input.R
-import com.example.o2input.ui.theme.LocalCustomColorsPalette
+import com.example.o2input.ui.theme.LocalColors
 import com.example.o2input.ui.theme.LocalSpacing
 import com.example.o2input.ui.theme.LocalTypography
 import com.example.o2input.ui.theme.O2InputTheme
@@ -78,7 +78,7 @@ fun PasswordInput(
         Column(modifier = Modifier.padding(top = LocalSpacing.current.xs)) {
             rules.forEach { (ruleText, isValid) ->
                 val color =
-                    if (isValid) LocalCustomColorsPalette.current.surfaceBrand else LocalCustomColorsPalette.current.contentOnNeutralDanger
+                    if (isValid) LocalColors.current.surfaceBrand else LocalColors.current.contentOnNeutralDanger
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(

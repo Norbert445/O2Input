@@ -2,6 +2,8 @@ package com.example.o2input.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 
@@ -39,6 +41,15 @@ private val LightColorScheme = CustomColorsPalette(
     stateDefaultFocus = stateDefaultFocusLight
 )
 
+
+private val DarkMaterialColorScheme = darkColorScheme(
+    primary = surfaceBrandDark
+)
+
+private val LightMaterialColorScheme = lightColorScheme(
+    primary = surfaceBrandLight
+)
+
 @Composable
 fun O2InputTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -47,13 +58,14 @@ fun O2InputTheme(
     val colors = if (darkTheme) DarkColorScheme else LightColorScheme
 
     CompositionLocalProvider(
-        LocalCustomColorsPalette provides colors,
+        LocalColors provides colors,
         LocalSpacing provides Spacing(),
         LocalRadius provides Radius(),
         LocalTypography provides Typography()
     ) {
         MaterialTheme(
-            content = content
+            content = content,
+            colorScheme = if (darkTheme) DarkMaterialColorScheme else LightMaterialColorScheme
         )
     }
 }
