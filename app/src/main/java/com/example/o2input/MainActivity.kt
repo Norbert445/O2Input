@@ -4,10 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.getValue
@@ -16,7 +15,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.example.o2input.ui.theme.LocalColors
 import com.example.o2input.ui.theme.LocalSpacing
 import com.example.o2input.ui.theme.O2InputTheme
@@ -30,7 +28,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             O2InputTheme {
 
-                var email by remember { mutableStateOf("") }
+                var input by remember { mutableStateOf("") }
+                var errorInput by remember { mutableStateOf("") }
                 var password by remember { mutableStateOf("") }
 
                 Scaffold(
@@ -41,18 +40,27 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .padding(innerPadding)
-                            .padding(16.dp)
+                            .padding(horizontal = LocalSpacing.current.m),
+                        verticalArrangement = Arrangement.spacedBy(LocalSpacing.current.m)
                     ) {
                         InputView(
-                            value = email,
+                            value = input,
                             onValueChange = {
-                                email = it
+                                input = it
                             },
                             label = "Input",
                             placeholder = "Placeholder"
                         )
 
-                        Spacer(modifier = Modifier.height(LocalSpacing.current.m))
+                        InputView(
+                            value = errorInput,
+                            onValueChange = {
+                                errorInput = it
+                            },
+                            isError = true,
+                            label = "Error Input",
+                            placeholder = "Placeholder"
+                        )
 
                         PasswordInput(
                             password = password,
