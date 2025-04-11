@@ -35,18 +35,20 @@ import com.example.o2input.ui.theme.O2InputTheme
 @Composable
 fun PasswordInput(
     password: String,
-    onValueChange: (String) -> Unit,
+    onPasswordChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     label: String? = null,
     placeholder: String = "",
     isError: Boolean = false,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    supportingText: String? = null
 ) {
     var passwordVisible by remember { mutableStateOf(false) }
 
     Column(modifier = modifier) {
         InputView(
             value = password,
-            onValueChange = onValueChange,
+            onValueChange = onPasswordChange,
             modifier = modifier,
             label = label,
             placeholder = placeholder,
@@ -62,6 +64,8 @@ fun PasswordInput(
                     Icon(imageVector = icon, contentDescription = description)
                 }
             },
+            leadingIcon = leadingIcon,
+            supportingText = supportingText,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
         )
 
@@ -104,7 +108,7 @@ fun PasswordInputPreview() {
     O2InputTheme {
         PasswordInput(
             password = "",
-            onValueChange = {},
+            onPasswordChange = {},
             label = "Password"
         )
     }

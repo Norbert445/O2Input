@@ -31,9 +31,11 @@ fun InputView(
     modifier: Modifier = Modifier,
     label: String? = null,
     placeholder: String = "",
+    supportingText: String? = null,
     isOptional: Boolean = true,
     isError: Boolean = false,
     trailingIcon: @Composable (() -> Unit)? = null,
+    leadingIcon: @Composable (() -> Unit)? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default
 ) {
@@ -72,6 +74,9 @@ fun InputView(
                     color = LocalColors.current.contentOnNeutralLow,
                 )
             },
+            supportingText = supportingText?.let {
+                { Text(supportingText, style = LocalTypography.current.labelS) }
+            },
             isError = isError,
             modifier = Modifier
                 .fillMaxWidth(),
@@ -82,6 +87,7 @@ fun InputView(
             ),
             shape = RoundedCornerShape(LocalRadius.current.input),
             trailingIcon = trailingIcon,
+            leadingIcon = leadingIcon,
             visualTransformation = visualTransformation,
             keyboardOptions = keyboardOptions
         )

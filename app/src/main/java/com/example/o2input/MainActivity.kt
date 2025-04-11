@@ -40,7 +40,10 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .padding(innerPadding)
-                            .padding(horizontal = LocalSpacing.current.m),
+                            .padding(
+                                horizontal = LocalSpacing.current.m,
+                                vertical = LocalSpacing.current.xs
+                            ),
                         verticalArrangement = Arrangement.spacedBy(LocalSpacing.current.m)
                     ) {
                         InputView(
@@ -65,7 +68,7 @@ class MainActivity : ComponentActivity() {
                         PasswordInput(
                             password = password,
                             label = stringResource(R.string.password_title),
-                            onValueChange = {
+                            onPasswordChange = {
                                 password = it
                             }
                         )
