@@ -70,7 +70,11 @@ fun PasswordInput(
                 val description = if (passwordVisible) "Hide password" else "Show password"
 
                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                    Icon(imageVector = icon, contentDescription = description)
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = description,
+                        tint = LocalColors.current.contentOnNeutralLow
+                    )
                 }
             },
             leadingIcon = leadingIcon,
